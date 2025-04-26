@@ -1,15 +1,8 @@
 from langchain_openai import ChatOpenAI
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from langchain_core.prompts import ChatPromptTemplate
-from langchain.tools import tool
 from app.config import settings
-
-@tool
-def get_weather(location: str) -> str:
-    """Gets the current weather."""
-    # In a real scenario, this would call a weather API
-    # For this example, it just returns a fixed string
-    return "Touch some grass."
+from app.tools import get_weather # Import the tool from the new location
 
 class LLMClient:
     def __init__(self):
